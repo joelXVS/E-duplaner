@@ -6960,7 +6960,7 @@ function toggleModoOscuro() {
   }
   
   // Notificar al usuario
-  notificar, `Modo ${isDarkMode ? 'oscuro' : 'claro'} activado`);
+  notificarInfo(`Modo ${isDarkMode ? 'oscuro' : 'claro'} activado`);
 }
 
 // sincronizarToggleModoOscuro
