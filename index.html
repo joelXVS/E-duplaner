@@ -13,7 +13,7 @@
 <body>
   <div class="app-container">
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="logo-container">
           <div class="logo">E-duplaner</div>
@@ -25,69 +25,69 @@
       <nav class="sidebar-nav">
         <ul>
           <li class="active">
-            <a href="#dashboard">
+            <a href="#dashboard" onclick="showSection('dashboard')">
               <i class="fas fa-tachometer-alt"></i>
               <span>Panel de Control</span>
             </a>
           </li>
           <li>
-            <a href="#escuela">
+            <a href="#escuela" onclick="showSection('escuela')">
               <i class="fas fa-school"></i>
               <span>Escuela</span>
             </a>
           </li>
           <li>
-            <a href="#asignaturas">
+            <a href="#asignaturas" onclick="showSection('asignaturas')">
               <i class="fas fa-book"></i>
               <span>Asignaturas</span>
             </a>
           </li>
           <li>
-            <a href="#grupos">
+            <a href="#grupos" onclick="showSection('grupos')">
               <i class="fas fa-users"></i>
               <span>Grupos</span>
             </a>
           </li>
           <li>
-            <a href="#docentes">
+            <a href="#docentes" onclick="showSection('docentes')">
               <i class="fas fa-chalkboard-teacher"></i>
               <span>Docentes</span>
             </a>
           </li>
           <li>
-            <a href="#asignaciones">
+            <a href="#asignaciones" onclick="showSection('asignaciones')">
               <i class="fas fa-tasks"></i>
               <span>Asignaciones</span>
             </a>
           </li>
           <li>
-            <a href="#horarios-base">
+            <a href="#horarios-base" onclick="showSection('horarios-base')">
               <i class="fas fa-clock"></i>
               <span>Horarios Base</span>
             </a>
           </li>
           <li>
-            <a href="#historial">
+            <a href="#historial" onclick="showSection('historial')">
               <i class="fas fa-history"></i>
               <span>Historial</span>
             </a>
           </li>
           <li>
-            <a href="#reportes">
+            <a href="#reportes" onclick="showSection('reportes')">
               <i class="fas fa-chart-pie"></i>
               <span>Reportes</span>
             </a>
           </li>
           <li>
-            <a href="#configuracion">
+            <a href="#configuracion" onclick="showSection('configuracion')">
               <i class="fas fa-cog"></i>
               <span>Configuración</span>
             </a>
           </li>
-          <li>
+          <li id="tb-nav-container">
             <a id="tb-nav" onclick="toggleSideBar()">
-              <i class="fas fa-eye"></i>
-              <span>Mostrar NavBar</span>
+              <i class="fas fa-eye-slash"></i>
+              <span>Ocultar NavBar</span>
             </a>
           </li>
         </ul>
@@ -104,7 +104,7 @@
     </button>
     
     <!-- Main Content -->
-    <div class="main-content">
+    <div class="main-content" id="main-content">
       <!-- Dashboard Section -->
       <section id="dashboard" class="section active">
         <div class="section-header">
@@ -220,95 +220,110 @@
         </div>
       </section>
       
-      <!-- Docentes Section -->
-      <section id="docentes" class="section">
+      <!-- Escuela Section -->
+      <section id="escuela" class="section">
         <div class="section-header">
-          <h2><i class="fas fa-chalkboard-teacher"></i> Gestión de Docentes</h2>
+          <h2><i class="fas fa-school"></i> Escuela</h2>
           <div class="header-actions">
-            <button type="button" class="btn btn-primary" onclick="toggleForm('docente-form')">
-              <i class="fas fa-plus"></i> Nuevo Docente
-            </button>
-            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('docentes')"></i>
+            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('escuela')"></i>
           </div>
         </div>
         
-        <div class="form-container" id="docente-form" style="display: none;">
-          <h3>Registrar Nuevo Docente</h3>
-          <form id="form-nuevo-docente" onsubmit="return agregarDocente(event)">
-            <div class="form-group">
-              <label for="docente-nombre">Nombre Completo:</label>
-              <input type="text" id="docente-nombre" required>
-            </div>
-            
-            <div class="form-group">
-              <label>Restricciones de Horario:</label>
-              <div class="restricciones-container" id="restricciones-container">
-                <div class="restriccion-item">
-                  <select class="restriccion-dia">
-                    <option value="">Seleccionar día</option>
-                    <option value="Lunes">Lunes</option>
-                    <option value="Martes">Martes</option>
-                    <option value="Miércoles">Miércoles</option>
-                    <option value="Jueves">Jueves</option>
-                    <option value="Viernes">Viernes</option>
-                    <option value="Sábado">Sábado</option>
-                  </select>
-                  <input type="time" class="restriccion-hora-inicio" placeholder="Hora inicio">
-                  <input type="time" class="restriccion-hora-fin" placeholder="Hora fin">
-                  <button type="button" class="btn-icon" onclick="eliminarRestriccion(this)"><i class="fas fa-trash"></i></button>
-                </div>
-              </div>
-              <button type="button" class="btn btn-secondary" onclick="agregarRestriccion('restricciones-container')"><i class="fas fa-plus"></i> Agregar Restricción</button>
-            </div>
-            
-            <div class="form-group">
-              <label for="docente-max-horas">Máximo de Horas Semanales:</label>
-              <input type="number" id="docente-max-horas" min="1" max="40" value="20">
-            </div>
-            
-            <div class="form-group">
-              <label for="docente-director-grupo">Asignar como Director de Grupo:</label>
-              <select id="docente-director-grupo">
-                <option value="">No asignar como director</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label>Asignaturas y Grupos:</label>
-              <div id="asignaturas-container"></div>
-              <button type="button" class="btn btn-secondary" onclick="agregarAsignaturaDocente()"><i class="fas fa-plus"></i> Agregar Asignatura</button>
-            </div>
-            
-            <div class="form-actions">
-              <button type="button" class="btn btn-secondary" onclick="toggleForm('docente-form')">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
-          </form>
-        </div>
-        
-        <div class="table-container">
-          <div class="table-actions">
-            <div class="search-container">
-              <input type="text" id="buscar-docente" placeholder="Buscar docente...">
-              <button><i class="fas fa-search"></i></button>
-            </div>
+        <div class="tabs-container">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="tab-grados">Grados</button>
+            <button class="tab-btn" data-tab="tab-areas">Áreas</button>
           </div>
           
-          <table class="data-table" id="tabla-docentes">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Restricciones</th>
-                <th>Máx. Horas</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="empty-row">
-                <td colspan="4">No hay docentes registrados</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-grados">
+              <div class="tab-header">
+                <h3>Gestión de Grados</h3>
+                <button class="btn btn-primary" onclick="toggleForm('grado-form')">
+                  <i class="fas fa-plus"></i> Nuevo Grado
+                </button>
+              </div>
+              
+              <div class="form-container" id="grado-form" style="display: none;">
+                <h3>Registrar Nuevo Grado</h3>
+                <form id="form-nuevo-grado" onsubmit="agregarGrado(event)">
+                  <div class="form-group">
+                    <label for="grado-nombre">Nombre:</label>
+                    <input type="text" id="grado-nombre" placeholder="Ej: Primero, Segundo, etc." required>
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="toggleForm('grado-form')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+                </form>
+              </div>
+              
+              <div class="table-container">
+                <table class="data-table" id="tabla-grados">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Grupos</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="empty-row">
+                      <td colspan="3">No hay grados registrados</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="tab-areas">
+              <div class="tab-header">
+                <h3>Gestión de Áreas</h3>
+                <button class="btn btn-primary" onclick="toggleForm('area-form')">
+                  <i class="fas fa-plus"></i> Nueva Área
+                </button>
+              </div>
+              
+              <div class="form-container" id="area-form" style="display: none;">
+                <h3>Registrar Nueva Área</h3>
+                <form id="form-nueva-area" onsubmit="agregarArea(event)">
+                  <div class="form-group">
+                    <label for="area-nombre">Nombre:</label>
+                    <input type="text" id="area-nombre" placeholder="Ej: Matemáticas, Ciencias, etc." required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="area-color">Color:</label>
+                    <input type="color" id="area-color" value="#3498db">
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="toggleForm('area-form')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+                </form>
+              </div>
+              
+              <div class="table-container">
+                <table class="data-table" id="tabla-areas">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Color</th>
+                      <th>Asignaturas</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="empty-row">
+                      <td colspan="4">No hay áreas registradas</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -326,7 +341,7 @@
         
         <div class="form-container" id="asignatura-form" style="display: none;">
           <h3>Registrar Nueva Asignatura</h3>
-          <form id="form-nueva-asignatura" onsubmit="return agregarAsignatura(event)">
+          <form id="form-nueva-asignatura" onsubmit="agregarAsignatura(event)">
             <div class="form-group">
               <label for="asignatura-identificador">Identificador:</label>
               <input type="text" id="asignatura-identificador" required maxlength="6">
@@ -410,7 +425,7 @@
         
         <div class="form-container" id="grupo-form" style="display: none;">
           <h3>Registrar Nuevo Grupo</h3>
-          <form id="form-nuevo-grupo" onsubmit="return agregarGrupo(event)">
+          <form id="form-nuevo-grupo" onsubmit="agregarGrupo(event)">
             <div class="form-group">
               <label for="grupo-grado">Grado:</label>
               <select id="grupo-grado" required>
@@ -455,6 +470,98 @@
             <tbody>
               <tr class="empty-row">
                 <td colspan="4">No hay grupos registrados</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Docentes Section -->
+      <section id="docentes" class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-chalkboard-teacher"></i> Gestión de Docentes</h2>
+          <div class="header-actions">
+            <button type="button" class="btn btn-primary" onclick="toggleForm('docente-form')">
+              <i class="fas fa-plus"></i> Nuevo Docente
+            </button>
+            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('docentes')"></i>
+          </div>
+        </div>
+        
+        <div class="form-container" id="docente-form" style="display: none;">
+          <h3>Registrar Nuevo Docente</h3>
+          <form id="form-nuevo-docente" onsubmit="agregarDocente(event)">
+            <div class="form-group">
+              <label for="docente-nombre">Nombre Completo:</label>
+              <input type="text" id="docente-nombre" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Restricciones de Horario:</label>
+              <div class="restricciones-container" id="restricciones-container">
+                <div class="restriccion-item">
+                  <select class="restriccion-dia">
+                    <option value="">Seleccionar día</option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miércoles">Miércoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    <option value="Sábado">Sábado</option>
+                  </select>
+                  <input type="time" class="restriccion-hora-inicio" placeholder="Hora inicio">
+                  <input type="time" class="restriccion-hora-fin" placeholder="Hora fin">
+                  <button type="button" class="btn-icon" onclick="eliminarRestriccion(this)"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+              <button type="button" class="btn btn-secondary" onclick="agregarRestriccion('restricciones-container')"><i class="fas fa-plus"></i> Agregar Restricción</button>
+            </div>
+            
+            <div class="form-group">
+              <label for="docente-max-horas">Máximo de Horas Semanales:</label>
+              <input type="number" id="docente-max-horas" min="1" max="40" value="20">
+            </div>
+            
+            <div class="form-group">
+              <label for="docente-director-grupo">Asignar como Director de Grupo:</label>
+              <select id="docente-director-grupo">
+                <option value="">No asignar como director</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Asignaturas y Grupos:</label>
+              <div id="asignaturas-container"></div>
+              <button type="button" class="btn btn-secondary" onclick="agregarAsignaturaDocente()"><i class="fas fa-plus"></i> Agregar Asignatura</button>
+            </div>
+            
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" onclick="toggleForm('docente-form')">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="table-container">
+          <div class="table-actions">
+            <div class="search-container">
+              <input type="text" id="buscar-docente" placeholder="Buscar docente...">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+          
+          <table class="data-table" id="tabla-docentes">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Restricciones</th>
+                <th>Máx. Horas</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="empty-row">
+                <td colspan="4">No hay docentes registrados</td>
               </tr>
             </tbody>
           </table>
@@ -528,7 +635,7 @@
         
         <div class="form-container" id="horario-base-form" style="display: none;">
           <h3>Crear Nuevo Horario Base</h3>
-          <form id="form-nuevo-horario-base" onsubmit="return agregarHorarioBase(event)">
+          <form id="form-nuevo-horario-base" onsubmit="agregarHorarioBase(event)">
             <div class="form-group">
               <label for="horario-base-nombre">Nombre:</label>
               <input type="text" id="horario-base-nombre" required>
@@ -579,196 +686,17 @@
         </div>
       </section>
       
-      <!-- Generación Manual Section -->
-      <section id="generacion-manual" class="section">
-        <div class="section-header">
-          <h2><i class="fas fa-pencil-alt"></i> Generación Manual de Horarios</h2>
-          <div class="header-actions">
-            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('generacion-manual')"></i>
-          </div>
-        </div>
-        
-        <div class="validation-alert" id="generacion-manual-alert" style="display: none;">
-          <i class="fas fa-exclamation-triangle"></i>
-          <div class="alert-content">
-            <h4>Asignaciones Incompletas</h4>
-            <p>No se pueden generar horarios porque hay grupos con asignaciones académicas incompletas. Complete todas las asignaciones antes de continuar.</p>
-          </div>
-        </div>
-        
-        <div class="manual-generator-container">
-          <div class="horario-base-selector" id="selector-horario-base-manual">
-            <h3>Seleccionar Horario Base</h3>
-            <div class="selector-container">
-              <select id="horario-base-manual">
-                <option value="">Seleccionar horario base</option>
-              </select>
-              <button class="btn btn-primary" onclick="seleccionarHorarioBaseManual()">Continuar</button>
-            </div>
-          </div>
-          
-          <div class="manual-schedule-builder" id="manual-schedule-builder" style="display: none;">
-            <div class="builder-header">
-              <h3>Generación Manual de Horarios</h3>
-              <div class="builder-actions">
-                <button class="btn btn-secondary" onclick="cancelarGeneracionManual()">Cancelar</button>
-                <button class="btn btn-primary" onclick="guardarHorariosManual()">Guardar Horarios</button>
-              </div>
-            </div>
-            
-            <div class="builder-content">
-              <div class="builder-sidebar">
-                <div class="sidebar-section">
-                  <h4>Grupo</h4>
-                  <select id="grupo-manual" onchange="seleccionarGrupoManual()">
-                    <option value="">Seleccionar grupo</option>
-                  </select>
-                </div>
-                
-                <div class="sidebar-section">
-                  <h4>Asignaciones Pendientes</h4>
-                  <div class="asignaciones-pendientes" id="asignaciones-pendientes">
-                    <p class="empty-state">Seleccione un grupo para ver las asignaciones pendientes</p>
-                  </div>
-                </div>
-                
-                <div class="builder-info">
-                  <p><i class="fas fa-info-circle"></i> Arrastre las asignaciones a las celdas del horario para asignarlas.</p>
-                  <div class="restriction-info">
-                    <p><i class="fas fa-exclamation-circle"></i> Restricciones:</p>
-                    <ul>
-                      <li>Un docente no puede dar dos clases a la vez</li>
-                      <li>Máximo 3 horas de una asignatura por día</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="schedule-grid-container" id="schedule-grid-container"></div>
-            </div>
-            
-            <div class="conflicts-panel" id="conflicts-panel" style="display: none;">
-              <h4><i class="fas fa-exclamation-triangle"></i> Conflictos Detectados</h4>
-              <div class="conflicts-list" id="conflicts-list"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Generación Automática Section -->
-      <section id="generacion-automatica" class="section">
-        <div class="section-header">
-          <h2><i class="fas fa-magic"></i> Generación Automática de Horarios</h2>
-          <div class="header-actions">
-            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('generacion-automatica')"></i>
-          </div>
-        </div>
-        
-        <div class="validation-alert" id="generacion-auto-alert" style="display: none;">
-          <i class="fas fa-exclamation-triangle"></i>
-          <div class="alert-content">
-            <h4>Asignaciones Incompletas</h4>
-            <p>No se pueden generar horarios porque hay grupos con asignaciones académicas incompletas. Complete todas las asignaciones antes de continuar.</p>
-          </div>
-        </div>
-        
-        <div class="auto-generator-container">
-          <div class="horario-base-selector" id="selector-horario-base-auto">
-            <h3>Seleccionar Horario Base</h3>
-            <div class="selector-container">
-              <select id="horario-base-auto">
-                <option value="">Seleccionar horario base</option>
-              </select>
-              <button class="btn btn-primary" onclick="seleccionarHorarioBaseAuto()">Continuar</button>
-            </div>
-          </div>
-          
-          <div id="configuracion-auto" style="display: none;">
-            <h3>Configurar Generación</h3>
-            
-            <div class="form-group">
-              <label for="tipo-generacion">Tipo de Generación:</label>
-              <select id="tipo-generacion" onchange="seleccionarTipoGeneracion()">
-                <option value="">Seleccionar tipo de generación</option>
-                <option value="grupo">Por Grupo</option>
-                <option value="grado">Por Grado</option>
-              </select>
-            </div>
-            
-            <div class="form-group" id="selector-grupos-grados"></div>
-            
-            <div class="form-group">
-              <label>Restricciones Aplicadas:</label>
-              <div class="restricciones-lista">
-                <div class="restriccion-item">
-                  <i class="fas fa-check-circle"></i> Un docente no puede dar dos clases a la vez
-                </div>
-                <div class="restriccion-item">
-                  <i class="fas fa-check-circle"></i> Máximo 3 horas de una asignatura por día
-                </div>
-                <div class="restriccion-item">
-                  <i class="fas fa-check-circle"></i> Respetar restricciones de horario de docentes
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-actions">
-              <button class="btn btn-secondary" onclick="cancelarGeneracionAutomatica()">Cancelar</button>
-              <button class="btn btn-primary" onclick="generarHorariosAutomaticos()">Generar Horarios</button>
-            </div>
-          </div>
-          
-          <div class="generacion-progress" id="generacion-progress" style="display: none;">
-            <h4>Generando Horarios</h4>
-            <div class="progress-bar">
-              <div class="progress" id="generacion-progress-bar" style="width: 0%">0%</div>
-            </div>
-            <p id="generacion-progress-text">0%</p>
-            <button class="btn btn-secondary" onclick="cancelarGeneracionAutomatica()">Cancelar</button>
-          </div>
-          
-          <div id="resultados-auto" style="display: none;">
-            <div class="resultados-header">
-              <h3>Resultados de la Generación</h3>
-              <div class="resultados-info">
-                Seleccione una solución para ver sus detalles
-              </div>
-            </div>
-            
-            <div class="resultados-tabs" id="resultados-tabs"></div>
-            
-            <div class="solucion-resumen" id="solucion-resumen"></div>
-            
-            <div class="conflicts-panel" id="solucion-conflicts-panel" style="display: none;">
-              <h4><i class="fas fa-exclamation-triangle"></i> Conflictos Detectados</h4>
-              <div class="conflicts-list" id="solucion-conflicts-list"></div>
-            </div>
-            
-            <div class="solucion-vista-previa">
-              <h3>Vista Previa</h3>
-              <div class="selector-grupo-preview">
-                <label>Grupo:</label>
-                <select id="selector-grupo-preview" onchange="mostrarVistaPrevia()">
-                  <option value="">Seleccionar grupo</option>
-                </select>
-              </div>
-              
-              <div class="horario-preview" id="horario-preview"></div>
-            </div>
-            
-            <div class="resultados-actions">
-              <button class="btn btn-secondary" onclick="cancelarGeneracionAutomatica()">Volver</button>
-              <button class="btn btn-primary" onclick="guardarHorariosAutomaticos()">Guardar Horarios</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       <!-- Historial Section -->
       <section id="historial" class="section">
         <div class="section-header">
           <h2><i class="fas fa-history"></i> Historial de Generaciones</h2>
           <div class="header-actions">
+            <button type="button" class="btn btn-primary" onclick="exportarDatosJSON()">
+              <i class="fas fa-file-export"></i> Exportar Datos
+            </button>
+            <button type="button" class="btn btn-primary" onclick="importarDatosJSON()">
+              <i class="fas fa-file-import"></i> Importar Datos
+            </button>
             <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('historial')"></i>
           </div>
         </div>
@@ -804,142 +732,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </section>
-      
-      <!-- Ver Horarios Section -->
-      <section id="ver-horarios" class="section">
-        <div class="section-header">
-          <h2><i class="fas fa-eye"></i> <span id="horarios-titulo">Ver Horarios</span></h2>
-          <div class="header-actions">
-            <button class="btn btn-primary" onclick="exportarHorarios()">
-              <i class="fas fa-file-export"></i> Exportar
-            </button>
-            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('ver-horarios')"></i>
-          </div>
-        </div>
-        
-        <div class="horarios-container">
-          <div class="horarios-filters">
-            <div class="form-group">
-              <label for="tipo-vista">Tipo de Vista:</label>
-              <select id="tipo-vista" onchange="cambiarTipoVista()">
-                <option value="grupos">Por Grupos</option>
-                <option value="docentes">Por Docentes</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="horario-view-container">
-            <div class="horario-view" id="horarios-view"></div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Escuela Section -->
-      <section id="escuela" class="section">
-        <div class="section-header">
-          <h2><i class="fas fa-school"></i> Escuela</h2>
-          <div class="header-actions">
-            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('escuela')"></i>
-          </div>
-        </div>
-        
-        <div class="tabs-container">
-          <div class="tabs">
-            <button class="tab-btn active" data-tab="tab-grados">Grados</button>
-            <button class="tab-btn" data-tab="tab-areas">Áreas</button>
-          </div>
-          
-          <div class="tab-content">
-            <div class="tab-pane active" id="tab-grados">
-              <div class="tab-header">
-                <h3>Gestión de Grados</h3>
-                <button class="btn btn-primary" onclick="toggleForm('grado-form')">
-                  <i class="fas fa-plus"></i> Nuevo Grado
-                </button>
-              </div>
-              
-              <div class="form-container" id="grado-form" style="display: none;">
-                <h3>Registrar Nuevo Grado</h3>
-                <form id="form-nuevo-grado" onsubmit="return agregarGrado(event)">
-                  <div class="form-group">
-                    <label for="grado-nombre">Nombre:</label>
-                    <input type="text" id="grado-nombre" placeholder="Ej: Primero, Segundo, etc." required>
-                  </div>
-                  
-                  <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="toggleForm('grado-form')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                  </div>
-                </form>
-              </div>
-              
-              <div class="table-container">
-                <table class="data-table" id="tabla-grados">
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Grupos</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="empty-row">
-                      <td colspan="3">No hay grados registrados</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            
-            <div class="tab-pane" id="tab-areas">
-              <div class="tab-header">
-                <h3>Gestión de Áreas</h3>
-                <button class="btn btn-primary" onclick="toggleForm('area-form')">
-                  <i class="fas fa-plus"></i> Nueva Área
-                </button>
-              </div>
-              
-              <div class="form-container" id="area-form" style="display: none;">
-                <h3>Registrar Nueva Área</h3>
-                <form id="form-nueva-area" onsubmit="return agregarArea(event)">
-                  <div class="form-group">
-                    <label for="area-nombre">Nombre:</label>
-                    <input type="text" id="area-nombre" placeholder="Ej: Matemáticas, Ciencias, etc." required>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="area-color">Color:</label>
-                    <input type="color" id="area-color" value="#3498db">
-                  </div>
-                  
-                  <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="toggleForm('area-form')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                  </div>
-                </form>
-              </div>
-              
-              <div class="table-container">
-                <table class="data-table" id="tabla-areas">
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Color</th>
-                      <th>Asignaturas</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="empty-row">
-                      <td colspan="4">No hay áreas registradas</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       
@@ -1092,36 +884,6 @@
     </div>
   </div>
   
-  <!-- Modal de Ver Horario -->
-  <div class="modal" id="modal-ver-horario">
-    <div class="modal-content modal-lg">
-      <div class="modal-header">
-        <h3 id="modal-horario-titulo">Horario</h3>
-        <button class="modal-close" onclick="cerrarModal('modal-ver-horario')">&times;</button>
-      </div>
-      <div class="modal-body" id="modal-horario-contenido"></div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="cerrarModal('modal-ver-horario')">Cerrar</button>
-        <button class="btn btn-info" id="modal-horario-exportar-imagen"><i class="fas fa-file-image"></i> Exportar Imagen</button>
-        <button class="btn btn-primary" id="modal-horario-imprimir"><i class="fas fa-print"></i> Imprimir</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal de Ver Grupo -->
-  <div class="modal" id="modal-ver-grupo">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modal-grupo-titulo">Grupo</h3>
-        <button class="modal-close" onclick="cerrarModal('modal-ver-grupo')">&times;</button>
-      </div>
-      <div class="modal-body" id="modal-grupo-contenido"></div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="cerrarModal('modal-ver-grupo')">Cerrar</button>
-      </div>
-    </div>
-  </div>
-  
   <!-- Modal de Ayuda -->
   <div class="modal" id="modal-ayuda">
     <div class="modal-content">
@@ -1132,79 +894,6 @@
       <div class="modal-body" id="modal-ayuda-contenido"></div>
       <div class="modal-footer">
         <button class="btn btn-secondary" onclick="cerrarModal('modal-ayuda')">Cerrar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal de Exportación -->
-  <div id="modal-exportar" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modal-exportar-titulo">Exportar Horario</h3>
-        <button class="modal-close" onclick="cerrarModal('modal-exportar')">&times;</button>
-      </div>
-      <div class="modal-body" id="modal-exportar-contenido"></div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="cerrarModal('modal-exportar')">Cancelar</button>
-        <button class="btn btn-primary" id="modal-exportar-btn" onclick="realizarExportacion()">Exportar</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal de Advertencia de Espacios Vacíos -->
-  <div class="modal" id="modal-espacios-vacios">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Advertencia: Espacios Vacíos</h3>
-        <button class="modal-close" onclick="cerrarModal('modal-espacios-vacios')">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="warning-message">
-          <i class="fas fa-exclamation-triangle warning-icon"></i>
-          <p>Se han detectado espacios vacíos en el horario del grupo. No se puede generar un horario con horas libres.</p>
-          <p>Por favor, asegúrese de asignar todas las horas de clase para cada grupo antes de guardar el horario.</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="cerrarModal('modal-espacios-vacios')">Cancelar</button>
-        <button class="btn btn-primary" onclick="continuarConEspaciosVacios()">Continuar de todos modos</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal de Conflictos -->
-  <div class="modal" id="modal-conflictos">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Conflictos en el Horario</h3>
-        <button class="modal-close" onclick="cerrarModal('modal-conflictos')">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="conflicts-container" id="modal-conflictos-lista">
-          <!-- Aquí se mostrarán los conflictos -->
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" onclick="cerrarModal('modal-conflictos')">Entendido</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contenedor de notificaciones -->
-  <div id="notificaciones-container" class="notificaciones-container"></div>
-  
-  <!-- Modal de Backups -->
-  <div class="modal" id="modal-backups">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Gestión de Backups</h3>
-        <button class="modal-close" onclick="cerrarModal('modal-backups')">&times;</button>
-      </div>
-      <div class="modal-body" id="modal-backups-contenido">
-        <!-- Contenido dinámico -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="cerrarModal('modal-backups')">Cerrar</button>
       </div>
     </div>
   </div>
@@ -1224,7 +913,17 @@
       </div>
     </div>
   </div>
+
+  <!-- Contenedor de notificaciones -->
+  <div id="notificaciones-container" class="notificaciones-container"></div>
   
+  <!-- Botón para cerrar todas las notificaciones (opcional) -->
+  <div id="control-notificaciones" style="position: fixed; top: 10px; right: 420px; z-index: 10000; display: none;">
+    <button class="btn btn-secondary btn-sm" onclick="cerrarTodasLasNotificaciones()" title="Cerrar todas las notificaciones">
+        <i class="fas fa-times-circle"></i>
+    </button>
+  </div>
+
   <script src="scripts.js"></script>
   <script src="styles.js"></script>
 
