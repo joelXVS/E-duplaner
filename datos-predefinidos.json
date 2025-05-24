@@ -1,0 +1,3397 @@
+{
+  "grados": [
+    {
+      "id": "grado6",
+      "nombre": "Sexto"
+    },
+    {
+      "id": "grado7",
+      "nombre": "Séptimo"
+    },
+    {
+      "id": "grado8",
+      "nombre": "Octavo"
+    },
+    {
+      "id": "grado9",
+      "nombre": "Noveno"
+    },
+    {
+      "id": "grado10",
+      "nombre": "Décimo"
+    },
+    {
+      "id": "grado11",
+      "nombre": "Undécimo"
+    }
+  ],
+  "areas": [
+    {
+      "id": "area1",
+      "nombre": "Ciencias Computacionales",
+      "color": "#4285F4"
+    },
+    {
+      "id": "area2",
+      "nombre": "Ciencias Naturales y de Investigación",
+      "color": "#34A853"
+    },
+    {
+      "id": "area3",
+      "nombre": "Ciencias Sociales y de Pensamiento Humano",
+      "color": "#FBBC05"
+    },
+    {
+      "id": "area4",
+      "nombre": "Educación Recreativa y Deportes",
+      "color": "#EA4335"
+    },
+    {
+      "id": "area5",
+      "nombre": "Humanidades, Arte y Lenguas Modernas",
+      "color": "#8E44AD"
+    },
+    {
+      "id": "area6",
+      "nombre": "Matemáticas y Ciencias Exactas",
+      "color": "#2C3E50"
+    },
+    {
+      "id": "area7",
+      "nombre": "Negocios y Finanzas",
+      "color": "#16A085"
+    },
+    {
+      "id": "area8",
+      "nombre": "Nociones de Convivencia y Ética",
+      "color": "#D35400"
+    },
+    {
+      "id": "area9",
+      "nombre": "Proyección Educativa e Institucional",
+      "color": "#274E13"
+    }
+  ],
+  "docentes": [
+    {
+      "id": "docente1",
+      "nombre": "Andrés Rivera",
+      "restricciones": [],
+      "maxHoras": 28,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_DisWeb",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_TeoDiW",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_NoPr1",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente2",
+      "nombre": "María López",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_NoPr1",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Tics1",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_StarTe",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Tics2",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente3",
+      "nombre": "Juliana Morales",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_NoPr1",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_NoPr2",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente4",
+      "nombre": "Santiago Pérez",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_OfiBas",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Ofimat",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_StarTe",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente5",
+      "nombre": "Camilo Rojas",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_OfiBas",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_StarTe",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente6",
+      "nombre": "Felipe Vargas",
+      "restricciones": [],
+      "maxHoras": 35,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Biol",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_CienAm",
+          "grupos": [
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_CieInt",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_BioGen",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo11C"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente7",
+      "nombre": "Andrea Jiménez",
+      "restricciones": [],
+      "maxHoras": 37,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Biol",
+          "grupos": [
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_CienAm",
+          "grupos": [
+            "grupo9A",
+            "grupo9B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_BioGen",
+          "grupos": [
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente8",
+      "nombre": "Manuel Gómez",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_CienAm",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo8B",
+            "grupo8A",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente9",
+      "nombre": "Daniela Herrera",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_CieInt",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente10",
+      "nombre": "Gabriela Díaz",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Fisi1",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Fisi2",
+          "grupos": [
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_FisiEx",
+          "grupos": [
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_FisiMo",
+          "grupos": [
+            "grupo11A"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente11",
+      "nombre": "Valentina Suárez",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Fisi1",
+          "grupos": [
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Fisi2",
+          "grupos": [
+            "grupo11A"
+          ]
+        },
+        {
+          "asignatura": "asignatura_FisiEx",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C"
+          ]
+        },
+        {
+          "asignatura": "asignatura_FisiMo",
+          "grupos": [
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente12",
+      "nombre": "Camilo Córdoba",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Quim1",
+          "grupos": [
+            "grupo10A",
+            "grupo10C"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Quim2",
+          "grupos": [
+            "grupo11A",
+            "grupo11C"
+          ]
+        },
+        {
+          "asignatura": "asignatura_QuimEx",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente13",
+      "nombre": "Juan David Zapata",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Quim1",
+          "grupos": [
+            "grupo10B",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Quim2",
+          "grupos": [
+            "grupo11B",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_QuimOr",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente14",
+      "nombre": "Jorge García",
+      "restricciones": [],
+      "maxHoras": 28,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_CiePol",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_DereHu",
+          "grupos": [
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_EtiSoc",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GeoF1",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_ProySo",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_HistUn",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GeoF1",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente15",
+      "nombre": "Laura Montoya",
+      "restricciones": [],
+      "maxHoras": 33,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_EtiSoc",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Econ",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GeoF2",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D",
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GeoPol",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente16",
+      "nombre": "Rosa Castillo",
+      "restricciones": [],
+      "maxHoras": 28,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_CiePol",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_DereHu",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GeoPol",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Filo",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_PenCiu",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente17",
+      "nombre": "Natalia Sánchez",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Filo",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Hist",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo6B"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente18",
+      "nombre": "Sofía Delgado",
+      "restricciones": [],
+      "maxHoras": 24,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Hist",
+          "grupos": [
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_HistUn",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LogSoc",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_PenCiu",
+          "grupos": [
+            "grupo7C",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente19",
+      "nombre": "Pedro Ortiz",
+      "restricciones": [],
+      "maxHoras": 20,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Hist",
+          "grupos": [
+            "grupo6A",
+            "grupo6C",
+            "grupo6D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_HistUn",
+          "grupos": [
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LogSoc",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_ProySo",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente20",
+      "nombre": "Luis Ramírez",
+      "restricciones": [],
+      "maxHoras": 33,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_EduFis",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Depo2",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente21",
+      "nombre": "Juan García",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Depo1",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Depo2",
+          "grupos": [
+            "grupo9C",
+            "grupo10A",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente22",
+      "nombre": "Tatiana Ramírez",
+      "restricciones": [],
+      "maxHoras": 39,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_EduFis",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Depo2",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Danza",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente23",
+      "nombre": "Fernando Rodríguez",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Depo1",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Depo2",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_ProCre",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente24",
+      "nombre": "Mariana Pérez",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_SalPre",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Teatro",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_ProCre",
+          "grupos": [
+            "grupo7A",
+            "grupo7B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Reda",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente25",
+      "nombre": "Ana Segura Angulo",
+      "restricciones": [],
+      "maxHoras": 28,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_ArtPla",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_HistAr",
+          "grupos": [
+            "grupo9A",
+            "grupo9B"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente26",
+      "nombre": "Diana Valencia",
+      "restricciones": [],
+      "maxHoras": 33,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_GramEs",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo7A",
+            "grupo7B",
+            "grupo8A",
+            "grupo8B",
+            "grupo9A",
+            "grupo9B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Litera",
+          "grupos": [
+            "grupo9C",
+            "grupo9D",
+            "grupo9B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Reda",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente27",
+      "nombre": "Patricia Torres",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Litera",
+          "grupos": [
+            "grupo9A",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Litera",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente28",
+      "nombre": "Sergio Morales",
+      "restricciones": [],
+      "maxHoras": 35,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Litera",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GramEs",
+          "grupos": [
+            "grupo6C",
+            "grupo6D",
+            "grupo7D",
+            "grupo8C",
+            "grupo8D",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GramEs",
+          "grupos": [
+            "grupo7C"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente29",
+      "nombre": "Mónica Palacios",
+      "restricciones": [],
+      "maxHoras": 33,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_GramIn",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo9B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Vocab",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo9B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_TeoE1",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente30",
+      "nombre": "Cristian Peña",
+      "restricciones": [],
+      "maxHoras": 30,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_GramIn",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D",
+            "grupo9A",
+            "grupo9C"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Vocab",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D",
+            "grupo9A",
+            "grupo9C"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente31",
+      "nombre": "Samuel Bernal",
+      "restricciones": [],
+      "maxHoras": 33,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_GramIn",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Vocab",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_TeoE1",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente32",
+      "nombre": "Gerardo Moreno",
+      "restricciones": [],
+      "maxHoras": 30,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_HistAr",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Musica",
+          "grupos": [
+            "grupo7B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Musica",
+          "grupos": [
+            "grupo7A",
+            "grupo7C",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente33",
+      "nombre": "Fernanda Palacios",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Vocab",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_TeoE2",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente34",
+      "nombre": "Enrique Montalvo",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_AnalLi",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_InvAca",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente35",
+      "nombre": "Felicia Cuero Orobio",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_DebaLi",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_TeoE1",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LeProA",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente36",
+      "nombre": "Diana Mary Campaz",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_LeProA",
+          "grupos": [
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo7A"
+          ]
+        },
+        {
+          "asignatura": "asignatura_RedIng",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D",
+            "grupo9A",
+            "grupo9C",
+            "grupo9B",
+            "grupo9D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente37",
+      "nombre": "Jorge Valencia",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_LecInt",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LecCri",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente38",
+      "nombre": "Mauricio Potes Roble",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_LecCri",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_ProdTe",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente39",
+      "nombre": "David Jiménez",
+      "restricciones": [],
+      "maxHoras": 28,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Aritme",
+          "grupos": [
+            "grupo6A",
+            "grupo6C"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Geomet",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D",
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Esta",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_GeomBa",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente40",
+      "nombre": "Ricardo Ruiz",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Aritme",
+          "grupos": [
+            "grupo6B",
+            "grupo6D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Alge",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Trigon",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente41",
+      "nombre": "Karen Robles",
+      "restricciones": [],
+      "maxHoras": 36,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Aritme",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Esta",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Alge",
+          "grupos": [
+            "grupo9A",
+            "grupo9B"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LogMat",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente42",
+      "nombre": "Gustavo Cantillo",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Esta",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_CaMaEs",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Alge",
+          "grupos": [
+            "grupo9C",
+            "grupo9D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LogMat",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente43",
+      "nombre": "Juan Orozco",
+      "restricciones": [],
+      "maxHoras": 32,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Finanz",
+          "grupos": [
+            "grupo10A",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Nego1",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_EtiCon",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_EtiVoc",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LogGen",
+          "grupos": [
+            "grupo6A",
+            "grupo6D",
+            "grupo7C"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente44",
+      "nombre": "Laura Rivera",
+      "restricciones": [],
+      "maxHoras": 30,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Finanz",
+          "grupos": [
+            "grupo10C",
+            "grupo10B",
+            "grupo10D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Nego2",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_EtiCon",
+          "grupos": [
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_EtiVoc",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_LogGen",
+          "grupos": [
+            "grupo6B",
+            "grupo6C",
+            "grupo7A",
+            "grupo7B",
+            "grupo7D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente45",
+      "nombre": "Jaime Castaño",
+      "restricciones": [],
+      "maxHoras": 28,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Reda",
+          "grupos": [
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_ProCre",
+          "grupos": [
+            "grupo7C",
+            "grupo7D",
+            "grupo8A",
+            "grupo8B",
+            "grupo8C",
+            "grupo8D",
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente46",
+      "nombre": "Claudia Vega",
+      "restricciones": [],
+      "maxHoras": 34,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_ProyIn",
+          "grupos": [
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Tall1",
+          "grupos": [
+            "grupo6A",
+            "grupo6B",
+            "grupo6C",
+            "grupo6D",
+            "grupo7A",
+            "grupo7B",
+            "grupo7C",
+            "grupo7D",
+            "grupo8C"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    },
+    {
+      "id": "docente47",
+      "nombre": "Elena Gómez",
+      "restricciones": [],
+      "maxHoras": 30,
+      "asignaturasGrupos": [
+        {
+          "asignatura": "asignatura_Tall1",
+          "grupos": [
+            "grupo8A",
+            "grupo8B",
+            "grupo8D"
+          ]
+        },
+        {
+          "asignatura": "asignatura_Tall2",
+          "grupos": [
+            "grupo9A",
+            "grupo9B",
+            "grupo9C",
+            "grupo9D",
+            "grupo10A",
+            "grupo10B",
+            "grupo10C",
+            "grupo10D",
+            "grupo11A",
+            "grupo11B",
+            "grupo11C",
+            "grupo11D"
+          ]
+        }
+      ],
+      "directorGrupo": null
+    }
+  ],
+  "asignaturas": [
+    {
+      "id": "asignatura_Alge",
+      "identificador": "Alge",
+      "nombre": "Álgebra",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado8",
+          "horas": 4
+        },
+        {
+          "grado": "grado9",
+          "horas": 4
+        }
+      ]
+    },
+    {
+      "id": "asignatura_AnalLi",
+      "identificador": "AnalLi",
+      "nombre": "Análisis Literario",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Aritme",
+      "identificador": "Aritme",
+      "nombre": "Aritmética",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 4
+        },
+        {
+          "grado": "grado7",
+          "horas": 4
+        }
+      ]
+    },
+    {
+      "id": "asignatura_ArtPla",
+      "identificador": "ArtPla",
+      "nombre": "Artes Plásticas",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Biol",
+      "identificador": "Biol",
+      "nombre": "Biología",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        },
+        {
+          "grado": "grado7",
+          "horas": 3
+        },
+        {
+          "grado": "grado8",
+          "horas": 3
+        },
+        {
+          "grado": "grado9",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_BioGen",
+      "identificador": "BioGen",
+      "nombre": "Biología y Genética",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_CaMaEs",
+      "identificador": "CaMaEs",
+      "nombre": "Cálculo y Análisis Matemático y Estadístico",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_CienAm",
+      "identificador": "CienAm",
+      "nombre": "Ciencias Ambientales",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_CieInt",
+      "identificador": "CieInt",
+      "nombre": "Ciencias Integradas",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_CiePol",
+      "identificador": "CiePol",
+      "nombre": "Ciencias Políticas",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Danza",
+      "identificador": "Danza",
+      "nombre": "Danza",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado8",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_DebaLi",
+      "identificador": "DebaLi",
+      "nombre": "Debates Lingüísticos - Inglés",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Depo1",
+      "identificador": "Depo1",
+      "nombre": "Deportes Colectivos 1",
+      "area": "area4",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 3
+        },
+        {
+          "grado": "grado10",
+          "horas": 3
+        },
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Depo2",
+      "identificador": "Depo2",
+      "nombre": "Deportes Colectivos 2",
+      "area": "area4",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 3
+        },
+        {
+          "grado": "grado10",
+          "horas": 3
+        },
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_DereHu",
+      "identificador": "DereHu",
+      "nombre": "Derechos Humanos",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_DisWeb",
+      "identificador": "DisWeb",
+      "nombre": "Diseño Web",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Econ",
+      "identificador": "Econ",
+      "nombre": "Economía",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_EduFis",
+      "identificador": "EduFis",
+      "nombre": "Educación Física y Recreativa",
+      "area": "area4",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        },
+        {
+          "grado": "grado7",
+          "horas": 3
+        },
+        {
+          "grado": "grado8",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Finanz",
+      "identificador": "Finanz",
+      "nombre": "Educación Orientada en Finanzas",
+      "area": "area7",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Esta",
+      "identificador": "Esta",
+      "nombre": "Estadística",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado7",
+          "horas": 1
+        },
+        {
+          "grado": "grado9",
+          "horas": 1
+        },
+        {
+          "grado": "grado10",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_EtiSoc",
+      "identificador": "EtiSoc",
+      "nombre": "Ética Social",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado8",
+          "horas": 1
+        },
+        {
+          "grado": "grado9",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_EtiVoc",
+      "identificador": "EtiVoc",
+      "nombre": "Ética Vocacional",
+      "area": "area8",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_EtiCon",
+      "identificador": "EtiCon",
+      "nombre": "Ética y Convivencia",
+      "area": "area8",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 1
+        },
+        {
+          "grado": "grado7",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Filo",
+      "identificador": "Filo",
+      "nombre": "Filosofía",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 1
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Fisi1",
+      "identificador": "Fisi1",
+      "nombre": "Física 1",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Fisi2",
+      "identificador": "Fisi2",
+      "nombre": "Física 2",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_FisiEx",
+      "identificador": "FisiEx",
+      "nombre": "Física Experimental",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_FisiMo",
+      "identificador": "FisiMo",
+      "nombre": "Física Moderna",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_GeoF1",
+      "identificador": "GeoF1",
+      "nombre": "Geografía Física 1",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 1
+        },
+        {
+          "grado": "grado7",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_GeoF2",
+      "identificador": "GeoF2",
+      "nombre": "Geografía Física 2",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_GeoPol",
+      "identificador": "GeoPol",
+      "nombre": "Geografía y Política",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Geomet",
+      "identificador": "Geomet",
+      "nombre": "Geometría",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado8",
+          "horas": 1
+        },
+        {
+          "grado": "grado9",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_GeomBa",
+      "identificador": "GeomBa",
+      "nombre": "Geometría Básica",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 1
+        },
+        {
+          "grado": "grado7",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_GramEs",
+      "identificador": "GramEs",
+      "nombre": "Gramática Española",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_GramIn",
+      "identificador": "GramIn",
+      "nombre": "Gramática Inglesa",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        },
+        {
+          "grado": "grado7",
+          "horas": 3
+        },
+        {
+          "grado": "grado8",
+          "horas": 3
+        },
+        {
+          "grado": "grado9",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Hist",
+      "identificador": "Hist",
+      "nombre": "Historia",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_HistAr",
+      "identificador": "HistAr",
+      "nombre": "Historia del Arte",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_HistUn",
+      "identificador": "HistUn",
+      "nombre": "Historia Universal",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 1
+        },
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_InvAca",
+      "identificador": "InvAca",
+      "nombre": "Investigación Académica",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_LecCri",
+      "identificador": "LecCri",
+      "nombre": "Lectura Crítica",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_LecInt",
+      "identificador": "LecInt",
+      "nombre": "Lectura Interpretativa",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_LeProA",
+      "identificador": "LeProA",
+      "nombre": "Lectura y Proceso Auditivo - Inglés",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Litera",
+      "identificador": "Litera",
+      "nombre": "Literatura",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        },
+        {
+          "grado": "grado7",
+          "horas": 3
+        },
+        {
+          "grado": "grado8",
+          "horas": 3
+        },
+        {
+          "grado": "grado9",
+          "horas": 3
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_LogGen",
+      "identificador": "LogGen",
+      "nombre": "Lógica General",
+      "area": "area8",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_LogMat",
+      "identificador": "LogMat",
+      "nombre": "Lógica Matemática",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_LogSoc",
+      "identificador": "LogSoc",
+      "nombre": "Lógica Social",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Musica",
+      "identificador": "Musica",
+      "nombre": "Música",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado7",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Nego1",
+      "identificador": "Nego1",
+      "nombre": "Negocios 1",
+      "area": "area7",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Nego2",
+      "identificador": "Nego2",
+      "nombre": "Negocios 2",
+      "area": "area7",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_NoPr1",
+      "identificador": "NoPr1",
+      "nombre": "Nociones de Programación 1",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        },
+        {
+          "grado": "grado7",
+          "horas": 3
+        },
+        {
+          "grado": "grado8",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_NoPr2",
+      "identificador": "NoPr2",
+      "nombre": "Nociones de Programación 2",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 3
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Ofimat",
+      "identificador": "Ofimat",
+      "nombre": "Ofimática",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_OfiBas",
+      "identificador": "OfiBas",
+      "nombre": "Ofimática y Estadística Básica",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        },
+        {
+          "grado": "grado7",
+          "horas": 3
+        },
+        {
+          "grado": "grado8",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_PenCiu",
+      "identificador": "PenCiu",
+      "nombre": "Pensamiento Ciudadano",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_ProdTe",
+      "identificador": "ProdTe",
+      "nombre": "Producción Textual",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_ProySo",
+      "identificador": "ProySo",
+      "nombre": "Proyección Social",
+      "area": "area3",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_ProCre",
+      "identificador": "ProCre",
+      "nombre": "Proyecto Creativo",
+      "area": "area9",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_ProyIn",
+      "identificador": "ProyIn",
+      "nombre": "Proyecto Interdisciplinar",
+      "area": "area9",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Quim1",
+      "identificador": "Quim1",
+      "nombre": "Química 1",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Quim2",
+      "identificador": "Quim2",
+      "nombre": "Química 2",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_QuimEx",
+      "identificador": "QuimEx",
+      "nombre": "Química Experimental",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_QuimOr",
+      "identificador": "QuimOr",
+      "nombre": "Química Orgánica",
+      "area": "area2",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_RedIng",
+      "identificador": "RedIng",
+      "nombre": "Redacción - Inglés",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Reda",
+      "identificador": "Reda",
+      "nombre": "Redacción",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_SalPre",
+      "identificador": "SalPre",
+      "nombre": "Salud Preventiva",
+      "area": "area4",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 1
+        },
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_StarTe",
+      "identificador": "StarTe",
+      "nombre": "StartUp y Tecnología",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Tall1",
+      "identificador": "Tall1",
+      "nombre": "Taller 1",
+      "area": "area9",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Tall2",
+      "identificador": "Tall2",
+      "nombre": "Taller 2",
+      "area": "area9",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Teatro",
+      "identificador": "Teatro",
+      "nombre": "Teatro",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Tics1",
+      "identificador": "Tics1",
+      "nombre": "Tecnología Y Comunicación 1",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 1
+        },
+        {
+          "grado": "grado10",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Tics2",
+      "identificador": "Tics2",
+      "nombre": "Tecnología Y Comunicación 2",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_TeoDiW",
+      "identificador": "TeoDiW",
+      "nombre": "Teoría de Diseño Web",
+      "area": "area1",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_TeoE1",
+      "identificador": "TeoE1",
+      "nombre": "Teoría de Idiomas Extranjeros 1",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        }
+      ]
+    },
+    {
+      "id": "asignatura_TeoE2",
+      "identificador": "TeoE2",
+      "nombre": "Teoría de Idiomas Extranjeros 2",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado9",
+          "horas": 1
+        },
+        {
+          "grado": "grado10",
+          "horas": 1
+        },
+        {
+          "grado": "grado11",
+          "horas": 1
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Trigon",
+      "identificador": "Trigon",
+      "nombre": "Trigonometría",
+      "area": "area6",
+      "gradosHoras": [
+        {
+          "grado": "grado10",
+          "horas": 3
+        }
+      ]
+    },
+    {
+      "id": "asignatura_Vocab",
+      "identificador": "Vocab",
+      "nombre": "Vocabulario - Inglés",
+      "area": "area5",
+      "gradosHoras": [
+        {
+          "grado": "grado6",
+          "horas": 2
+        },
+        {
+          "grado": "grado7",
+          "horas": 2
+        },
+        {
+          "grado": "grado8",
+          "horas": 2
+        },
+        {
+          "grado": "grado9",
+          "horas": 2
+        },
+        {
+          "grado": "grado10",
+          "horas": 2
+        },
+        {
+          "grado": "grado11",
+          "horas": 2
+        }
+      ]
+    }
+  ],
+  "grupos": [
+    {
+      "id": "grupo6A",
+      "grado": "grado6",
+      "nombre": "A"
+    },
+    {
+      "id": "grupo6B",
+      "grado": "grado6",
+      "nombre": "B"
+    },
+    {
+      "id": "grupo6C",
+      "grado": "grado6",
+      "nombre": "C"
+    },
+    {
+      "id": "grupo6D",
+      "grado": "grado6",
+      "nombre": "D"
+    },
+    {
+      "id": "grupo7A",
+      "grado": "grado7",
+      "nombre": "A"
+    },
+    {
+      "id": "grupo7B",
+      "grado": "grado7",
+      "nombre": "B"
+    },
+    {
+      "id": "grupo7C",
+      "grado": "grado7",
+      "nombre": "C"
+    },
+    {
+      "id": "grupo7D",
+      "grado": "grado7",
+      "nombre": "D"
+    },
+    {
+      "id": "grupo8A",
+      "grado": "grado8",
+      "nombre": "A"
+    },
+    {
+      "id": "grupo8B",
+      "grado": "grado8",
+      "nombre": "B"
+    },
+    {
+      "id": "grupo8C",
+      "grado": "grado8",
+      "nombre": "C"
+    },
+    {
+      "id": "grupo8D",
+      "grado": "grado8",
+      "nombre": "D"
+    },
+    {
+      "id": "grupo9A",
+      "grado": "grado9",
+      "nombre": "A"
+    },
+    {
+      "id": "grupo9B",
+      "grado": "grado9",
+      "nombre": "B"
+    },
+    {
+      "id": "grupo9C",
+      "grado": "grado9",
+      "nombre": "C"
+    },
+    {
+      "id": "grupo9D",
+      "grado": "grado9",
+      "nombre": "D"
+    },
+    {
+      "id": "grupo10A",
+      "grado": "grado10",
+      "nombre": "A"
+    },
+    {
+      "id": "grupo10B",
+      "grado": "grado10",
+      "nombre": "B"
+    },
+    {
+      "id": "grupo10C",
+      "grado": "grado10",
+      "nombre": "C"
+    },
+    {
+      "id": "grupo10D",
+      "grado": "grado10",
+      "nombre": "D"
+    },
+    {
+      "id": "grupo11A",
+      "grado": "grado11",
+      "nombre": "A"
+    },
+    {
+      "id": "grupo11B",
+      "grado": "grado11",
+      "nombre": "B"
+    },
+    {
+      "id": "grupo11C",
+      "grado": "grado11",
+      "nombre": "C"
+    },
+    {
+      "id": "grupo11D",
+      "grado": "grado11",
+      "nombre": "D"
+    }
+  ],
+  "asignaciones": [],
+  "horariosBase": [
+    {
+      "id": "horarioBase1",
+      "nombre": "Horario Estándar",
+      "horaInicio": "07:00",
+      "horaFin": "14:00",
+      "duracionBloque": 60,
+      "dias": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "recesos": [
+        {
+          "horaInicio": "10:00",
+          "horaFin": "10:30",
+          "nombre": "Descanso"
+        }
+      ],
+      "grupos": [
+        "grupo6A",
+        "grupo6B",
+        "grupo6C",
+        "grupo6D",
+        "grupo7A",
+        "grupo7B",
+        "grupo7C",
+        "grupo7D",
+        "grupo8A",
+        "grupo8B",
+        "grupo8C",
+        "grupo8D",
+        "grupo9A",
+        "grupo9B",
+        "grupo9C",
+        "grupo9D",
+        "grupo10A",
+        "grupo10B",
+        "grupo10C",
+        "grupo10D",
+        "grupo11A",
+        "grupo11B",
+        "grupo11C",
+        "grupo11D"
+      ],
+      "fechaCreacion": "2023-01-01T00:00:00.000Z"
+    }
+  ],
+  "horarios": [],
+  "historial": []
+}
