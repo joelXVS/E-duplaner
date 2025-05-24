@@ -480,6 +480,10 @@ function showSection(sectionId) {
   const targetSection = document.getElementById(sectionId);
   if (targetSection) {
     targetSection.classList.add("active");
+  } else {
+    console.error(`Sección ${sectionId} no encontrada`);
+    notificarError(`Error: La sección ${sectionId} no existe`);
+    return;
   }
 
   // Actualizar navegación
@@ -500,31 +504,34 @@ function showSection(sectionId) {
   switch (sectionId) {
     case "docentes":
       cargarFormularioDocente();
-      break
+      break;
     case "asignaturas":
       cargarFormularioAsignatura();
-      break
+      break;
     case "grupos":
       cargarFormularioGrupo();
-      break
+      break;
     case "asignaciones":
       cargarTablaAsignaciones();
       verificarAsignacionesCompletas();
-      break
+      break;
     case "horarios-base":
       cargarHorariosBase();
-      break
+      break;
     case "generacion-manual":
       cargarSelectorHorarioBaseManual();
       verificarAsignacionesCompletas("generacion-manual-alert");
-      break
+      break;
     case "generacion-automatica":
       cargarSelectorHorarioBaseAuto();
       verificarAsignacionesCompletas("generacion-auto-alert");
-      break
+      break;
     case "historial":
       cargarHistorial();
-      break
+      break;
+    case "ver-horarios":
+      // No hacer nada específico, se carga desde el historial
+      break;
   }
 }
 
@@ -3136,7 +3143,7 @@ function filtrarDocentes() {
 
 function filtrarAsignaturas() {
   const busqueda = document.getElementById("buscar-asignatura").value.toLowerCase();
-  const filtroArea = document.getElementById("filtro-area-asignatura").value;
+  const filtroArea = document.getElementById("filtro-area-asignatura").value; // ID corregido
   
   const tabla = document.getElementById("tabla-asignaturas");
   const filas = tabla.querySelectorAll("tbody tr:not(.empty-row)");
@@ -3175,7 +3182,7 @@ function filtrarAsignaturas() {
 
 function filtrarGrupos() {
   const busqueda = document.getElementById("buscar-grupo").value.toLowerCase();
-  const filtroGrado = document.getElementById("filtro-grado").value;
+  const filtroGrado = document.getElementById("filtro-grado-grupo").value; // ID corregido
   
   const tabla = document.getElementById("tabla-grupos");
   const filas = tabla.querySelectorAll("tbody tr:not(.empty-row)");
@@ -3206,6 +3213,82 @@ function filtrarGrupos() {
       emptyRow.cells[0].textContent = "No se encontraron grupos con esos criterios";
     }
   }
+}
+
+function verGrupo(grupoId) {
+  const grupo = datos.grupos.find(g => g.id === grupoId);
+  if (!grupo) return;
+  
+  const grado = datos.grados.find(g => g.id === grupo.grado);
+  const asignaciones = datos.asignaciones.filter(a => a.grupo === grupoId);
+  const director = datos.docentes.find(d => d.directorGrupo === grupoId);
+  
+  const modalTitulo = document.getElementById("modal-editar-titulo");
+  const modalContenido = document.getElementById("modal-editar-contenido");
+  const modalGuardar = document.getElementById("modal-editar-guardar");
+  
+  modalTitulo.textContent = `Información del Grupo: ${grado?.nombre || ""} ${grupo.nombre}`;
+  
+  modalContenido.innerHTML = `
+    <div class="grupo-info-container">
+      <div class="grupo-info-header">
+        <h3>${grado?.nombre || ""} ${grupo.nombre}</h3>
+        <p><strong>Director:</strong> ${director?.nombre || "Sin director asignado"}</p>
+      </div>
+      
+      <div class="grupo-asignaciones">
+        <h4>Asignaciones Académicas</h4>
+        ${asignaciones.length === 0 ? 
+          '<p class="empty-state">No hay asignaciones para este grupo</p>' : 
+          `<table class="data-table">
+            <thead>
+              <tr>
+                <th>Asignatura</th>
+                <th>Docente</th>
+                <th>Horas Semanales</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${asignaciones.map(asignacion => {
+                const asignatura = datos.asignaturas.find(a => a.id === asignacion.asignatura);
+                const docente = datos.docentes.find(d => d.id === asignacion.docente);
+                return `
+                  <tr>
+                    <td>${asignatura?.nombre || "Sin asignatura"}</td>
+                    <td>${docente?.nombre || "Sin docente"}</td>
+                    <td>${asignacion.horasSemanales}</td>
+                  </tr>
+                `;
+              }).join("")}
+            </tbody>
+          </table>`
+        }
+      </div>
+      
+      <div class="grupo-estadisticas">
+        <h4>Estadísticas</h4>
+        <div class="estadisticas-grid">
+          <div class="estadistica-item">
+            <div class="estadistica-valor">${asignaciones.length}</div>
+            <div class="estadistica-label">Asignaturas</div>
+          </div>
+          <div class="estadistica-item">
+            <div class="estadistica-valor">${asignaciones.reduce((total, a) => total + a.horasSemanales, 0)}</div>
+            <div class="estadistica-label">Horas Totales</div>
+          </div>
+          <div class="estadistica-item">
+            <div class="estadistica-valor">${[...new Set(asignaciones.map(a => a.docente))].length}</div>
+            <div class="estadistica-label">Docentes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  modalGuardar.textContent = "Cerrar";
+  modalGuardar.onclick = () => cerrarModal("modal-editar");
+  
+  document.getElementById("modal-editar").style.display = "block";
 }
 
 // =========================================
