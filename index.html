@@ -799,6 +799,225 @@
           </div>
         </div>
       </section>
+
+      <!-- Generación Manual Section -->
+      <section id="generacion-manual" class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-pencil-alt"></i> Generación Manual de Horarios</h2>
+          <div class="header-actions">
+            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('generacion-manual')"></i>
+          </div>
+        </div>
+        
+        <div class="validation-alert" id="generacion-manual-alert" style="display: none;">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="alert-content">
+            <h4>Asignaciones Incompletas</h4>
+            <p>Hay grupos con asignaciones académicas incompletas. Complete todas las asignaciones antes de generar horarios.</p>
+          </div>
+        </div>
+        
+        <!-- Selector de Horario Base -->
+        <div class="selector-container" id="selector-horario-base-manual">
+          <h3>Seleccionar Horario Base</h3>
+          <div class="form-group">
+            <label for="horario-base-manual">Horario Base:</label>
+            <select id="horario-base-manual">
+              <option value="">Seleccionar horario base</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-primary" onclick="seleccionarHorarioBaseManual()">
+              <i class="fas fa-arrow-right"></i> Continuar
+            </button>
+          </div>
+        </div>
+        
+        <!-- Constructor de Horario Manual -->
+        <div class="manual-builder-container" id="manual-schedule-builder" style="display: none;">
+          <div class="builder-header">
+            <h3>Constructor de Horario Manual</h3>
+            <div class="builder-actions">
+              <button type="button" class="btn btn-secondary" onclick="cancelarGeneracionManual()">
+                <i class="fas fa-times"></i> Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" onclick="guardarHorariosManual()">
+                <i class="fas fa-save"></i> Guardar Horarios
+              </button>
+            </div>
+          </div>
+          
+          <div class="builder-content">
+            <div class="builder-sidebar">
+              <div class="grupo-selector">
+                <label for="grupo-manual">Seleccionar Grupo:</label>
+                <select id="grupo-manual" onchange="seleccionarGrupoManual()">
+                  <option value="">Seleccionar grupo</option>
+                </select>
+              </div>
+              
+              <div class="asignaciones-pendientes-container">
+                <h4>Asignaciones Pendientes</h4>
+                <div id="asignaciones-pendientes">
+                  <p class="empty-state">Seleccione un grupo para ver las asignaciones pendientes</p>
+                </div>
+              </div>
+              
+              <div class="conflicts-panel" id="conflicts-panel" style="display: none;">
+                <h4>Conflictos</h4>
+                <div id="conflicts-list"></div>
+              </div>
+            </div>
+            
+            <div class="builder-main">
+              <div class="schedule-container">
+                <div id="schedule-grid-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Generación Automática Section -->
+      <section id="generacion-automatica" class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-magic"></i> Generación Automática de Horarios</h2>
+          <div class="header-actions">
+            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('generacion-automatica')"></i>
+          </div>
+        </div>
+        
+        <div class="validation-alert" id="generacion-auto-alert" style="display: none;">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="alert-content">
+            <h4>Asignaciones Incompletas</h4>
+            <p>Hay grupos con asignaciones académicas incompletas. Complete todas las asignaciones antes de generar horarios.</p>
+          </div>
+        </div>
+        
+        <!-- Selector de Horario Base -->
+        <div class="selector-container" id="selector-horario-base-auto">
+          <h3>Seleccionar Horario Base</h3>
+          <div class="form-group">
+            <label for="horario-base-auto">Horario Base:</label>
+            <select id="horario-base-auto">
+              <option value="">Seleccionar horario base</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-primary" onclick="seleccionarHorarioBaseAuto()">
+              <i class="fas fa-arrow-right"></i> Continuar
+            </button>
+          </div>
+        </div>
+        
+        <!-- Configuración Automática -->
+        <div class="auto-config-container" id="configuracion-auto" style="display: none;">
+          <h3>Configuración de Generación</h3>
+          
+          <div class="config-form">
+            <div class="form-group">
+              <label for="tipo-generacion">Generar para:</label>
+              <select id="tipo-generacion" onchange="seleccionarTipoGeneracion()">
+                <option value="grupo">Grupos específicos</option>
+                <option value="grado">Grados completos</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <div id="selector-grupos-grados"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="algoritmo-generacion">Algoritmo:</label>
+              <select id="algoritmo-generacion">
+                <option value="greedy">Algoritmo Voraz (Rápido)</option>
+                <option value="backtracking">Backtracking (Preciso)</option>
+                <option value="genetic">Algoritmo Genético (Optimizado)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="max-intentos">Máximo de intentos:</label>
+              <input type="number" id="max-intentos" min="100" max="10000" value="1000">
+            </div>
+            
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="prioridad-directores" checked>
+                Dar prioridad a directores de grupo
+              </label>
+            </div>
+            
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="distribuir-asignaturas" checked>
+                Distribuir asignaturas equitativamente
+              </label>
+            </div>
+            
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" onclick="cancelarGeneracionAuto()">
+                <i class="fas fa-times"></i> Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" onclick="iniciarGeneracionAuto()">
+                <i class="fas fa-magic"></i> Generar Horarios
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Indicador de Carga -->
+        <div class="loading-container" id="loading-indicator" style="display: none;">
+          <div class="loading-spinner"></div>
+          <p>Generando horarios automáticamente...</p>
+        </div>
+        
+        <!-- Resultados -->
+        <div class="results-container" id="resultados-auto" style="display: none;">
+          <div class="results-header">
+            <h3 id="resultado-titulo">Resultado de la Generación</h3>
+            <p id="resultado-mensaje"></p>
+          </div>
+          
+          <div class="results-content">
+            <div id="conflictos-container" style="display: none;"></div>
+            <div id="pendientes-container" style="display: none;"></div>
+          </div>
+          
+          <div class="results-actions" id="botones-resultado"></div>
+        </div>
+      </section>
+      
+      <!-- Ver Horarios Section -->
+      <section id="ver-horarios" class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-calendar-alt"></i> <span id="horarios-titulo">Ver Horarios</span></h2>
+          <div class="header-actions">
+            <i class="fas fa-question-circle help-icon" onclick="mostrarAyuda('ver-horarios')"></i>
+          </div>
+        </div>
+        
+        <div class="horarios-controls">
+          <div class="form-group">
+            <label for="tipo-vista">Tipo de vista:</label>
+            <select id="tipo-vista" onchange="cambiarTipoVista()">
+              <option value="grupos">Por Grupos</option>
+              <option value="docentes">Por Docentes</option>
+            </select>
+          </div>
+          
+          <div class="form-group" id="selector-horario-individual">
+            <!-- Contenido dinámico -->
+          </div>
+        </div>
+        
+        <div class="horarios-container">
+          <div id="horarios-view">
+            <div class="empty-state">Seleccione un horario del historial para visualizar</div>
+          </div>
+        </div>
+      </section>
       
       <!-- Configuración Section -->
       <section id="configuracion" class="section">
@@ -910,6 +1129,61 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" onclick="cerrarModal('modal-reportes')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Espacios Vacíos -->
+  <div class="modal" id="modal-espacios-vacios">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Espacios Vacíos Detectados</h3>
+        <button class="modal-close" onclick="cerrarModal('modal-espacios-vacios')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Se detectaron espacios vacíos en algunos horarios. ¿Desea continuar guardando los horarios con espacios vacíos?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="cerrarModal('modal-espacios-vacios')">Cancelar</button>
+        <button class="btn btn-primary" onclick="continuarConEspaciosVacios()">Continuar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de Ver Horario -->
+  <div class="modal" id="modal-ver-horario">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 id="modal-horario-titulo">Ver Horario</h3>
+        <button class="modal-close" onclick="cerrarModal('modal-ver-horario')">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-horario-contenido">
+        <!-- Contenido dinámico -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="cerrarModal('modal-ver-horario')">Cerrar</button>
+        <button class="btn btn-primary" id="modal-horario-exportar-imagen" onclick="exportarImagenHorarioDocente()">
+          <i class="fas fa-file-image"></i> Exportar Imagen
+        </button>
+        <button class="btn btn-primary" id="modal-horario-imprimir" onclick="imprimirHorarioDocente()">
+          <i class="fas fa-print"></i> Imprimir
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de Exportar -->
+  <div class="modal" id="modal-exportar">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-exportar-titulo">Exportar</h3>
+        <button class="modal-close" onclick="cerrarModal('modal-exportar')">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-exportar-contenido">
+        <!-- Contenido dinámico -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="cerrarModal('modal-exportar')">Cerrar</button>
       </div>
     </div>
   </div>
