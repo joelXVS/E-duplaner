@@ -378,6 +378,25 @@ function verificarElementosCriticos() {
   });
 }
 
+function validarFormularioVacio(formId) {
+  const form = document.getElementById(formId);
+  if (!form) return false;
+  
+  const inputs = form.querySelectorAll('input[required], select[required]');
+  let esValido = true;
+  
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      esValido = false;
+      input.style.borderColor = '#e74c3c';
+    } else {
+      input.style.borderColor = '';
+    }
+  });
+  
+  return esValido;
+}
+
 // =========================================
 // INICIALIZACION Y NAVEGACION
 // =========================================
@@ -398,7 +417,6 @@ function inicializarNavegacion() {
   if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
     
-    // Actualizar icono del botón de modo oscuro
     document.querySelectorAll('#modo-oscuro-btn').forEach(btn => {
       btn.innerHTML = '<i class="fas fa-sun"></i>';
       btn.title = 'Cambiar a modo claro';
@@ -411,13 +429,13 @@ function inicializarNavegacion() {
     isSidebarCollapsed = true;
     isSidebarExpanded = false;
     document.querySelector('.main-content').classList.add('expanded');
-    
-    // Ocultar tb-nav en móviles
-    const tbNavContainer = document.getElementById('tb-nav-container');
-    if (tbNavContainer) {
-      tbNavContainer.style.display = "none";
-    }
   }
+  
+  // Actualizar visibilidad del toggle
+  actualizarVisibilidadNavToggle();
+  
+  // Agregar listener para resize
+  window.addEventListener('resize', actualizarVisibilidadNavToggle);
 }
 
 // Función para controlar la barra de navegación
@@ -426,25 +444,27 @@ function toggleSideBar() {
   const span = document.querySelector('#tb-nav span');
   const icon = document.querySelector('#tb-nav i');
   const mainContent = document.querySelector(".main-content");
-  const tbNavContainer = document.getElementById('tb-nav-container');
 
   isSidebarExpanded = !isSidebarExpanded;
 
   if (sidebar) sidebar.classList.toggle("collapsed");
   if (mainContent) mainContent.classList.toggle("expanded");
 
-  // Controlar visibilidad del tb-nav
+  if (span) span.textContent = isSidebarExpanded ? "Ocultar NavBar" : "Mostrar NavBar";
+  if (icon) {
+    icon.className = isSidebarExpanded ? "fa fa-eye-slash" : "fa fa-eye";
+  }
+}
+
+function actualizarVisibilidadNavToggle() {
+  const tbNavContainer = document.getElementById('tb-nav-container');
   if (tbNavContainer) {
-    if (isSidebarExpanded) {
+    // Mostrar solo si la ventana es grande Y la sidebar está expandida
+    if (window.innerWidth > 992 && isSidebarExpanded) {
       tbNavContainer.style.display = "block";
     } else {
       tbNavContainer.style.display = "none";
     }
-  }
-
-  if (span) span.textContent = isSidebarExpanded ? "Ocultar NavBar" : "Mostrar NavBar";
-  if (icon) {
-    icon.className = isSidebarExpanded ? "fa fa-eye-slash" : "fa fa-eye";
   }
 }
 
@@ -701,7 +721,12 @@ function cargarDatosPredefinidos() {
 
 // Función para generar las asignaciones si no se cargan desde importar datos
 function generarAsignacionesDesdeDocentes() {
+  // Limpiar asignaciones existentes
+  datos.asignaciones = [];
+  
   datos.docentes.forEach(docente => {
+    if (!docente.asignaturasGrupos) return;
+    
     docente.asignaturasGrupos.forEach(ag => {
       const asignatura = datos.asignaturas.find(a => a.id === ag.asignatura);
       if (!asignatura) return;
@@ -713,14 +738,23 @@ function generarAsignacionesDesdeDocentes() {
         const gradoHoras = asignatura.gradosHoras?.find(gh => gh.grado === grupo.grado);
         if (!gradoHoras) return;
 
-        datos.asignaciones.push({
-          id: generateId(),
-          grupo: grupoId,
-          asignatura: asignatura.id,
-          docente: docente.id,
-          horasSemanales: gradoHoras.horas,
-          bloqueMaximo: Math.ceil(gradoHoras.horas / 2)
-        });
+        // Verificar si ya existe esta asignación
+        const existeAsignacion = datos.asignaciones.some(a => 
+          a.grupo === grupoId && 
+          a.asignatura === asignatura.id && 
+          a.docente === docente.id
+        );
+
+        if (!existeAsignacion) {
+          datos.asignaciones.push({
+            id: generateId(),
+            grupo: grupoId,
+            asignatura: asignatura.id,
+            docente: docente.id,
+            horasSemanales: gradoHoras.horas,
+            bloqueMaximo: Math.ceil(gradoHoras.horas / 2)
+          });
+        }
       });
     });
   });
@@ -1036,13 +1070,26 @@ function cargarFormularioHorarioBase() {
 function agregarDocente(event) {
   event.preventDefault();
   
+  // Validar formulario
+  if (!validarFormularioVacio('form-nuevo-docente')) {
+    notificarAdvertencia('Por favor complete todos los campos requeridos');
+    return false;
+  }
+  
   // Obtener datos del formulario
-  const nombre = document.getElementById("docente-nombre").value;
+  const nombre = document.getElementById("docente-nombre").value.trim();
   if (!nombre) {
     notificarAdvertencia("Por favor ingrese el nombre del docente");
     return false;
   }
-  const maxHoras = parseInt(document.getElementById("docente-max-horas").value);
+  
+  // Verificar si ya existe un docente con el mismo nombre
+  if (datos.docentes.some(d => d.nombre.toLowerCase() === nombre.toLowerCase())) {
+    notificarAdvertencia("Ya existe un docente con ese nombre");
+    return false;
+  }
+  
+  const maxHoras = parseInt(document.getElementById("docente-max-horas").value) || 20;
   const directorGrupo = document.getElementById("docente-director-grupo").value;
   
   // Obtener restricciones
@@ -1109,13 +1156,6 @@ function agregarDocente(event) {
       if (!gradoHoras) continue;
       
       totalHorasAsignadas += gradoHoras.horas;
-      
-      // Verificar restricciones para este grupo
-      const verificacion = verificarRestriccionesHoras(grupoId, nuevoDocente.id);
-      if (!verificacion.valido) {
-        notificarAdvertencia(verificacion.mensaje);
-        return false;
-      }
     }
   }
   
@@ -1147,7 +1187,7 @@ function agregarDocente(event) {
         asignatura: ag.asignatura,
         docente: nuevoDocente.id,
         horasSemanales: gradoHoras.horas,
-        bloqueMaximo: Math.ceil(gradoHoras.horas / 2) // Por defecto, máximo la mitad de las horas en un bloque
+        bloqueMaximo: Math.ceil(gradoHoras.horas / 2)
       };
       
       datos.asignaciones.push(nuevaAsignacion);
@@ -1157,8 +1197,9 @@ function agregarDocente(event) {
   // Guardar datos
   guardarDatos();
   
-  // Actualizar tabla
+  // Actualizar tablas
   cargarTablaDocentes();
+  cargarTablaAsignaciones();
   
   // Ocultar formulario
   toggleForm("docente-form");
@@ -1183,8 +1224,7 @@ function agregarDocente(event) {
     </div>
   `;
 
-  // Mostrar mensaje de éxito
-notificarExito("Docente agregado correctamente");  
+  notificarExito("Docente agregado correctamente");  
   return false;
 }
 
@@ -1192,14 +1232,31 @@ notificarExito("Docente agregado correctamente");
 function agregarAsignatura(event) {
   event.preventDefault();
   
+  // Validar formulario
+  if (!validarFormularioVacio('form-nueva-asignatura')) {
+    notificarAdvertencia('Por favor complete todos los campos requeridos');
+    return false;
+  }
+  
   // Obtener datos del formulario
-  const identificador = document.getElementById("asignatura-identificador").value;
-  const nombre = document.getElementById("asignatura-nombre").value;
+  const identificador = document.getElementById("asignatura-identificador").value.trim();
+  const nombre = document.getElementById("asignatura-nombre").value.trim();
   const area = document.getElementById("asignatura-area").value;
   
+  if (!identificador || !nombre || !area) {
+    notificarAdvertencia("Por favor complete todos los campos obligatorios");
+    return false;
+  }
+  
   // Verificar si el identificador ya existe
-  if (datos.asignaturas.some(a => a.identificador === identificador)) {
+  if (datos.asignaturas.some(a => a.identificador.toLowerCase() === identificador.toLowerCase())) {
     notificarAdvertencia("Ya existe una asignatura con ese identificador");
+    return false;
+  }
+  
+  // Verificar si el nombre ya existe
+  if (datos.asignaturas.some(a => a.nombre.toLowerCase() === nombre.toLowerCase())) {
+    notificarAdvertencia("Ya existe una asignatura con ese nombre");
     return false;
   }
   
@@ -1211,15 +1268,17 @@ function agregarAsignatura(event) {
     const gradoId = checkbox.value;
     const horas = parseInt(document.getElementById(`horas-${gradoId}`).value);
     
-    gradosHoras.push({
-      grado: gradoId,
-      horas
-    });
+    if (horas > 0) {
+      gradosHoras.push({
+        grado: gradoId,
+        horas
+      });
+    }
   });
   
   // Verificar que se haya seleccionado al menos un grado
   if (gradosHoras.length === 0) {
-    notificarAdvertencia("Debe seleccionar al menos un grado");
+    notificarAdvertencia("Debe seleccionar al menos un grado con horas válidas");
     return false;
   }
   
@@ -1254,6 +1313,7 @@ function agregarAsignatura(event) {
   
   document.querySelectorAll(".horas-input").forEach(input => {
     input.disabled = true;
+    input.value = 1;
   });
   
   // Mostrar notificación
@@ -1266,12 +1326,23 @@ function agregarAsignatura(event) {
 function agregarGrupo(event) {
   event.preventDefault();
   
+  // Validar formulario
+  if (!validarFormularioVacio('form-nuevo-grupo')) {
+    notificarAdvertencia('Por favor complete todos los campos requeridos');
+    return false;
+  }
+  
   // Obtener datos del formulario
   const grado = document.getElementById("grupo-grado").value;
-  const nombre = document.getElementById("grupo-nombre").value;
+  const nombre = document.getElementById("grupo-nombre").value.trim();
+  
+  if (!grado || !nombre) {
+    notificarAdvertencia("Por favor complete todos los campos");
+    return false;
+  }
   
   // Verificar si ya existe un grupo con el mismo nombre en el mismo grado
-  if (datos.grupos.some(g => g.grado === grado && g.nombre === nombre)) {
+  if (datos.grupos.some(g => g.grado === grado && g.nombre.toLowerCase() === nombre.toLowerCase())) {
     notificarAdvertencia("Ya existe un grupo con ese nombre en el grado seleccionado");
     return false;
   }
@@ -1308,11 +1379,22 @@ function agregarGrupo(event) {
 function agregarGrado(event) {
   event.preventDefault();
   
+  // Validar formulario
+  if (!validarFormularioVacio('form-nuevo-grado')) {
+    notificarAdvertencia('Por favor complete todos los campos requeridos');
+    return false;
+  }
+  
   // Obtener datos del formulario
-  const nombre = document.getElementById("grado-nombre").value;
+  const nombre = document.getElementById("grado-nombre").value.trim();
+  
+  if (!nombre) {
+    notificarAdvertencia("Por favor ingrese el nombre del grado");
+    return false;
+  }
   
   // Verificar si ya existe un grado con el mismo nombre
-  if (datos.grados.some(g => g.nombre === nombre)) {
+  if (datos.grados.some(g => g.nombre.toLowerCase() === nombre.toLowerCase())) {
     notificarAdvertencia("Ya existe un grado con ese nombre");
     return false;
   }
@@ -1348,12 +1430,23 @@ function agregarGrado(event) {
 function agregarArea(event) {
   event.preventDefault();
   
+  // Validar formulario
+  if (!validarFormularioVacio('form-nueva-area')) {
+    notificarAdvertencia('Por favor complete todos los campos requeridos');
+    return false;
+  }
+  
   // Obtener datos del formulario
-  const nombre = document.getElementById("area-nombre").value;
+  const nombre = document.getElementById("area-nombre").value.trim();
   const color = document.getElementById("area-color").value;
   
+  if (!nombre || !color) {
+    notificarAdvertencia("Por favor complete todos los campos");
+    return false;
+  }
+  
   // Verificar si ya existe un área con el mismo nombre
-  if (datos.areas.some(a => a.nombre === nombre)) {
+  if (datos.areas.some(a => a.nombre.toLowerCase() === nombre.toLowerCase())) {
     notificarAdvertencia("Ya existe un área con ese nombre");
     return false;
   }
@@ -1390,11 +1483,34 @@ function agregarArea(event) {
 function agregarHorarioBase(event) {
   event.preventDefault();
   
+  // Validar formulario
+  if (!validarFormularioVacio('form-nuevo-horario-base')) {
+    notificarAdvertencia('Por favor complete todos los campos requeridos');
+    return false;
+  }
+  
   // Obtener datos del formulario
-  const nombre = document.getElementById("horario-base-nombre").value;
+  const nombre = document.getElementById("horario-base-nombre").value.trim();
   const horaInicio = document.getElementById("horario-base-hora-inicio").value;
   const horaFin = document.getElementById("horario-base-hora-fin").value;
   const duracionBloque = parseInt(document.getElementById("horario-base-duracion-bloque").value);
+  
+  if (!nombre || !horaInicio || !horaFin || !duracionBloque) {
+    notificarAdvertencia("Por favor complete todos los campos obligatorios");
+    return false;
+  }
+  
+  // Verificar que la hora de fin sea mayor que la de inicio
+  if (horaInicio >= horaFin) {
+    notificarAdvertencia("La hora de fin debe ser mayor que la hora de inicio");
+    return false;
+  }
+  
+  // Verificar si ya existe un horario base con el mismo nombre
+  if (datos.horariosBase.some(h => h.nombre.toLowerCase() === nombre.toLowerCase())) {
+    notificarAdvertencia("Ya existe un horario base con ese nombre");
+    return false;
+  }
   
   // Obtener días seleccionados
   const dias = [];
@@ -1416,6 +1532,11 @@ function agregarHorarioBase(event) {
     const nombre = item.querySelector(".receso-nombre").value;
     
     if (horaInicio && horaFin) {
+      if (horaInicio >= horaFin) {
+        notificarAdvertencia("Las horas de receso no son válidas");
+        return false;
+      }
+      
       recesos.push({
         horaInicio,
         horaFin,
@@ -1484,7 +1605,6 @@ function agregarHorarioBase(event) {
   
   return false;
 }
-
 // =========================================
 // PANELES DE EDICIONES DE INSTANCIAS
 // =========================================
@@ -3300,7 +3420,7 @@ function seleccionarHorarioBaseManual() {
   const horarioBaseId = document.getElementById("horario-base-manual").value;
   
   if (!horarioBaseId) {
-    alert("Debe seleccionar un horario base");
+    notificarAdvertencia("Debe seleccionar un horario base");
     return;
   }
   
@@ -3911,7 +4031,7 @@ function guardarHorariosManual() {
   // Verificar si hay al menos una asignación
   const celdasOcupadas = document.querySelectorAll(".schedule-cell.occupied");
   if (celdasOcupadas.length === 0) {
-    alert("No hay asignaciones para guardar");
+    notificarAdvertencia("No hay asignaciones para guardar");
     return;
   }
   
@@ -5421,6 +5541,26 @@ function generarReporteCalidad(horarioId) {
   document.getElementById("modal-editar").style.display = "block";
 }
 
+function mostrarModalEdicion(titulo, contenido, funcionGuardar) {
+  const modalTitulo = document.getElementById("modal-editar-titulo");
+  const modalContenido = document.getElementById("modal-editar-contenido");
+  const modalGuardar = document.getElementById("modal-editar-guardar");
+  
+  modalTitulo.textContent = titulo;
+  modalContenido.innerHTML = contenido;
+  
+  // Mostrar botón guardar solo si hay función
+  if (funcionGuardar) {
+    modalGuardar.style.display = "inline-flex";
+    modalGuardar.textContent = "Guardar";
+    modalGuardar.onclick = funcionGuardar;
+  } else {
+    modalGuardar.style.display = "none";
+  }
+  
+  document.getElementById("modal-editar").style.display = "block";
+}
+
 // =========================================
 // HISTORIAL DE GENERACIONES
 // =========================================
@@ -6171,7 +6311,7 @@ function exportarImagenes(historialId) {
   
   // Verificar si html2canvas está disponible
   if (typeof html2canvas === 'undefined') {
-    alert("La funcionalidad de exportación a imagen requiere la librería html2canvas. Por favor, recargue la página.");
+    notificarInfo("La funcionalidad de exportación a imagen requiere la librería html2canvas. Por favor, recargue la página.");
     return;
   }
   
@@ -6194,8 +6334,8 @@ async function exportarImagenesIndividuales(historialId) {
   const generacion = datos.historial.find(h => h.id === historialId);
   if (!generacion) return;
   
-  alert("Se exportarán las imágenes individualmente. Por favor, espere a que se complete el proceso.");
-  
+  notificarInfo("Se exportarán las imágenes individualmente. Por favor, espere a que se complete el proceso.");
+
   // Exportar horarios de grupos
   for (const horario of generacion.horarios) {
     const grupo = datos.grupos.find(g => g.id === horario.grupo);
@@ -8320,6 +8460,12 @@ function inicializarFiltros() {
 }
 
 function agregarEventosFormularios() {
+  // Verificar si ya se agregaron los eventos
+  if (document.querySelector('[data-eventos-agregados]')) return;
+  
+  // Marcar que se agregaron eventos
+  document.body.setAttribute('data-eventos-agregados', 'true');
+  
   // Docentes
   const formDocente = document.getElementById("form-nuevo-docente");
   if (formDocente) {
@@ -8359,10 +8505,10 @@ function agregarEventosFormularios() {
 
 function agregarBotonesAdicionales() {
   const quickActions = document.querySelector('.quick-actions .action-buttons');
-  if (quickActions) {
+  if (quickActions && !quickActions.querySelector('.backup-btn')) {
     // Botón de backup
     const backupBtn = document.createElement('button');
-    backupBtn.className = 'action-btn';
+    backupBtn.className = 'action-btn backup-btn';
     backupBtn.onclick = crearBackup;
     backupBtn.innerHTML = `
       <div class="action-icon" style="background-color: #9b59b6;">
@@ -8374,7 +8520,7 @@ function agregarBotonesAdicionales() {
     
     // Botón de restaurar backup
     const restoreBtn = document.createElement('button');
-    restoreBtn.className = 'action-btn';
+    restoreBtn.className = 'action-btn restore-btn';
     restoreBtn.onclick = mostrarBackups;
     restoreBtn.innerHTML = `
       <div class="action-icon" style="background-color: #34495e;">
@@ -8386,7 +8532,7 @@ function agregarBotonesAdicionales() {
     
     // Botón de reportes
     const reportesBtn = document.createElement('button');
-    reportesBtn.className = 'action-btn';
+    reportesBtn.className = 'action-btn reportes-btn';
     reportesBtn.onclick = mostrarReportesPersonalizados;
     reportesBtn.innerHTML = `
       <div class="action-icon" style="background-color: #d35400;">
@@ -8397,23 +8543,7 @@ function agregarBotonesAdicionales() {
     quickActions.appendChild(reportesBtn);
   }
   
-  // Agregar botones de exportación e importación a la sección de historial
-  const historialHeader = document.querySelector('#historial .header-actions');
-  if (historialHeader) {
-    // Botón de exportar datos
-    const exportarBtn = document.createElement('button');
-    exportarBtn.className = 'btn btn-primary';
-    exportarBtn.onclick = exportarDatosJSON;
-    exportarBtn.innerHTML = '<i class="fas fa-file-export"></i> Exportar Datos';
-    historialHeader.prepend(exportarBtn);
-    
-    // Botón de importar datos
-    const importarBtn = document.createElement('button');
-    importarBtn.className = 'btn btn-primary';
-    importarBtn.onclick = importarDatosJSON;
-    importarBtn.innerHTML = '<i class="fas fa-file-import"></i> Importar Datos';
-    historialHeader.prepend(importarBtn);
-  }
+  // NO agregar botones al historial aquí - ya están en el HTML
 }
 
 // Reemplaza la función actualizarEstadisticas
@@ -8525,6 +8655,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Inicializar navegación PRIMERO
   inicializarNavegacion();
+  reemplazarAlertsGlobalmente();
 
   // Cargar datos guardados
   cargarDatos();
@@ -8726,28 +8857,76 @@ function cerrarTodasLasNotificaciones() {
   }
 }
 
-// Funciones de conveniencia para diferentes tipos
+// Variable para controlar notificaciones
+let ultimaNotificacion = { mensaje: '', timestamp: 0 };
+
 function notificarExito(mensaje, duracion = 4000) {
+  // Evitar duplicados
+  const ahora = Date.now();
+  if (ultimaNotificacion.mensaje === mensaje && (ahora - ultimaNotificacion.timestamp) < 1000) {
+    return;
+  }
+  
+  ultimaNotificacion = { mensaje, timestamp: ahora };
   agregarNotificacion('success', mensaje, null, duracion);
 }
 
 function notificarAdvertencia(mensaje, duracion = 6000) {
+  const ahora = Date.now();
+  if (ultimaNotificacion.mensaje === mensaje && (ahora - ultimaNotificacion.timestamp) < 1000) {
+    return;
+  }
+  
+  ultimaNotificacion = { mensaje, timestamp: ahora };
   agregarNotificacion('warning', mensaje, null, duracion);
 }
 
-function notificarError(mensaje, duracion = 0) { // Los errores no se auto-cierran
+function notificarError(mensaje, duracion = 0) {
+  const ahora = Date.now();
+  if (ultimaNotificacion.mensaje === mensaje && (ahora - ultimaNotificacion.timestamp) < 1000) {
+    return;
+  }
+  
+  ultimaNotificacion = { mensaje, timestamp: ahora };
   agregarNotificacion('error', mensaje, null, duracion);
 }
 
 function notificarInfo(mensaje, duracion = 5000) {
+  const ahora = Date.now();
+  if (ultimaNotificacion.mensaje === mensaje && (ahora - ultimaNotificacion.timestamp) < 1000) {
+    return;
+  }
+  
+  ultimaNotificacion = { mensaje, timestamp: ahora };
   agregarNotificacion('info', mensaje, null, duracion);
 }
 
 // Función para notificaciones con acción
-function notificarConAccion(tipo, mensaje, textoAccion, funcionAccion, duracion = 8000) {
-  const accion = {
-    texto: textoAccion,
-    funcion: funcionAccion
+function confirmarAccion(mensaje, callback) {
+  const modalTitulo = document.getElementById("modal-titulo");
+  const modalMensaje = document.getElementById("modal-mensaje");
+  const modalConfirmar = document.getElementById("modal-confirmar");
+  
+  modalTitulo.textContent = "Confirmar Acción";
+  modalMensaje.textContent = mensaje;
+  modalConfirmar.onclick = () => {
+    callback();
+    cerrarModal("modal-confirmacion");
   };
-  agregarNotificacion(tipo, mensaje, accion, duracion);
+  
+  document.getElementById("modal-confirmacion").style.display = "block";
+}
+
+function reemplazarAlertsGlobalmente() {
+  // Sobrescribir alert global
+  window.alert = function(mensaje) {
+    notificarInfo(mensaje);
+  };
+  
+  // Sobrescribir confirm global
+  window.confirm = function(mensaje) {
+    return new Promise((resolve) => {
+      confirmarAccion(mensaje, () => resolve(true));
+    });
+  };
 }
