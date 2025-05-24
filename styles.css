@@ -2978,3 +2978,470 @@ textarea {
     width: 100%;
   }
 }
+
+/* Estilos para Generación Manual y Automática */
+.selector-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.manual-builder-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.builder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.builder-content {
+  display: flex;
+  gap: 20px;
+  min-height: 600px;
+}
+
+.builder-sidebar {
+  width: 300px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.builder-main {
+  flex: 1;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.grupo-selector {
+  margin-bottom: 20px;
+}
+
+.asignaciones-pendientes-container {
+  margin-bottom: 20px;
+}
+
+.asignaciones-pendientes-container h4 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.asignatura-pendiente {
+  margin-bottom: 15px;
+}
+
+.asignatura-pendiente h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #6c757d;
+}
+
+.asignacion-item {
+  background: white;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: grab;
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.asignacion-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.asignacion-item:active {
+  cursor: grabbing;
+}
+
+.asignacion-item-header {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.asignacion-item-info {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.conflicts-panel {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.conflicts-panel h4 {
+  color: #856404;
+  margin-bottom: 10px;
+}
+
+.conflict-item {
+  background: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 4px solid #f39c12;
+}
+
+.schedule-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.schedule-grid {
+  display: table;
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+}
+
+.schedule-row {
+  display: table-row;
+}
+
+.schedule-cell {
+  display: table-cell;
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  min-height: 60px;
+  position: relative;
+}
+
+.schedule-header {
+  background: #4361ee;
+  color: white;
+  font-weight: bold;
+}
+
+.schedule-time {
+  background: #f8f9fa;
+  font-weight: bold;
+  font-size: 12px;
+  width: 120px;
+}
+
+.schedule-cell.droppable {
+  background: white;
+  min-height: 80px;
+}
+
+.schedule-cell.droppable:hover {
+  background: #f0f8ff;
+}
+
+.schedule-cell.droppable.dragover {
+  background: #e3f2fd;
+  border: 2px dashed #2196f3;
+}
+
+.schedule-cell.occupied {
+  background: #f8f9fa;
+}
+
+.schedule-cell.receso {
+  background: #f0f0f0;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.class-content {
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.class-subject {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.class-teacher {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.delete-assignment {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(220, 53, 69, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-assignment:hover {
+  background: #dc3545;
+}
+
+/* Estilos para Generación Automática */
+.auto-config-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.config-form {
+  max-width: 600px;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4361ee;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.results-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.results-header h3.success-title {
+  color: #27ae60;
+}
+
+.results-header h3.warning-title {
+  color: #f39c12;
+}
+
+.conflictos-lista, .pendientes-lista {
+  margin-top: 15px;
+}
+
+.conflicto-item, .pendiente-item {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.conflicto-item i, .pendiente-item i {
+  color: #f39c12;
+  margin-top: 2px;
+}
+
+/* Estilos para Ver Horarios */
+.horarios-controls {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 20px;
+  align-items: end;
+}
+
+.horarios-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.multiple-horarios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.grado-horarios-container {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 30px;
+}
+
+.grado-horarios-container:last-child {
+  border-bottom: none;
+}
+
+.grado-horarios-container h3 {
+  color: #4361ee;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4361ee;
+}
+
+.grupo-horario-container, .docente-horario-container {
+  margin-bottom: 30px;
+  page-break-inside: avoid;
+}
+
+.horario-encabezado {
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.horario-encabezado h3, .horario-encabezado h4 {
+  margin: 0 0 10px 0;
+  color: #4361ee;
+}
+
+.horario-encabezado p {
+  margin: 5px 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.horario-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.horario-table th,
+.horario-table td {
+  border: 1px solid #dee2e6;
+  padding: 12px 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.horario-table th {
+  background: #4361ee;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.horario-table .time-cell {
+  background: #f8f9fa;
+  font-weight: bold;
+  font-size: 12px;
+  width: 120px;
+}
+
+.horario-table .break-cell {
+  background: #f0f0f0;
+  color: #6c757d;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.horario-table .class-cell {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.horario-table .class-content {
+  padding: 8px;
+  border-radius: 4px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.horario-table .class-subject {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.horario-table .class-teacher {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .builder-content {
+    flex-direction: column;
+  }
+  
+  .builder-sidebar {
+    width: 100%;
+  }
+  
+  .horarios-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .schedule-container {
+    overflow-x: auto;
+  }
+}
+
+/* Validación de alertas */
+.validation-alert {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.validation-alert i {
+  color: #856404;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.alert-content h4 {
+  color: #856404;
+  margin: 0 0 8px 0;
+}
+
+.alert-content p {
+  color: #856404;
+  margin: 0;
+}
